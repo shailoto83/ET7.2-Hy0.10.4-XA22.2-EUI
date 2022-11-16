@@ -442,8 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - key: Unit
-    gameObject: {fileID: 1610378981859644, guid: cfaf4529ce2243c4c85126e9d008897b,
-      type: 3}
+    gameObject: {fileID: 1610378981859644, guid: cfaf4529ce2243c4c85126e9d008897b, type: 3}
 --- !u!114 &575235023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,7 +455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3cb9b07d7917f4cbf5bc2be18e8585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalConfig: {fileID: 11400000, guid: a60778dce43da574aa447ab3fcf5d9f7, type: 2}
 --- !u!1 &630054495
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +698,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 32

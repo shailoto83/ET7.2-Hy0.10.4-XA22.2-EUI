@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 339833221
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 89e9f6268850b6be9389bd2d0b691f9f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0886bbef843a377071c9fa792face2a7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: e25d6ed3a77268d4db84bdf9758d64c1, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Prefabs/HotUpdatePrefab.prefab
+Dependencies: []
