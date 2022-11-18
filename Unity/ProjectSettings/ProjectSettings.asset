@@ -788,7 +788,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    Android: NETSTANDARD2_0;UNITY
+    Android: NETSTANDARD2_0;UNITY;ENABLE_CODES
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

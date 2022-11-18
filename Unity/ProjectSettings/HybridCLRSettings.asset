@@ -15,9 +15,12 @@ MonoBehaviour:
   enable: 1
   useGlobalIl2cpp: 0
   cloneHomeURL: https://gitee.com/focus-creative-games
-  hotUpdateAssemblyDefinitions: []
-  hotUpdateAssemblies:
-  - Assembly-CSharp
+  hotUpdateAssemblyDefinitions:
+  - {fileID: 5897886265953266890, guid: efc2ca0b51ad54047b25b5c2eb4c19a1, type: 3}
+  - {fileID: 5897886265953266890, guid: 98395eb17a7c633439d4cc0873eda2ed, type: 3}
+  - {fileID: 5897886265953266890, guid: 2d56d402361754240b71ad908a0879da, type: 3}
+  - {fileID: 5897886265953266890, guid: 7d8c8789b4b09c048a09d38c44ad1d1f, type: 3}
+  hotUpdateAssemblies: []
   preserveHotUpdateAssemblies: []
   hotUpdateDllCompileOutputRootDir: HybridCLRData/HotUpdateDlls
   strippedAOTDllOutputRootDir: HybridCLRData/AssembliesPostIl2CppStrip

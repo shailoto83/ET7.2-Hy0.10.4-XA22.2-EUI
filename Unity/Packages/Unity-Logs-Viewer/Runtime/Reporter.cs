@@ -2092,7 +2092,7 @@ public class Reporter : MonoBehaviour
 #endif
 
 		if (!string.IsNullOrEmpty(www.error)) {
-			Debug.LogError(www.error);
+			Debug.LogError(www.url +":" + www.error);
 		}
 		else {
 #if UNITY_CHANGE4

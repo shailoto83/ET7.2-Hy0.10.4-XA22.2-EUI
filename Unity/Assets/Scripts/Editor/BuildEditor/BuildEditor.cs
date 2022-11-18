@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.Compilation;
 using UnityEngine;
+using HybridCLR.Editor;
 using Debug = UnityEngine.Debug;
 
 namespace ET
@@ -191,6 +192,17 @@ namespace ET
 		{
 			EditorWindow game = EditorWindow.GetWindow(typeof(EditorWindow).Assembly.GetType("UnityEditor.GameView"));
 			game?.ShowNotification(new GUIContent($"{tips}"));
+		}
+
+		[MenuItem("HybridCLR/Build/BuildETAssetsAndCopyToStreamingAssets")]
+		public static void BuildAndCopyABAOTHotUpdateDlls()
+		{
+			BuildAssetsCommand.BuildAssetBundleByTarget(EditorUserBuildSettings.activeBuildTarget);
+			BuildAssetsCommand.CopyAssetBundlesToStreamingAssets();
+			HybridCLR.Editor.Commands.CompileDllCommand.CompileDllActiveBuildTarget();
+			//BuildAssetsCommand.CopyAOTAssembliesToStreamingAssets();
+			BuildHelper.CopyAOTAssembliesToStreamingAssets();
+			BuildAssetsCommand.CopyHotUpdateAssembliesToStreamingAssets();
 		}
 	}
 }

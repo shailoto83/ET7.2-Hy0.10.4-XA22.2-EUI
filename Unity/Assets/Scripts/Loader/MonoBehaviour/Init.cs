@@ -34,7 +34,7 @@ namespace ET
 			
 			ETTask.ExceptionHandler += Log.Error;
 
-			Game.AddSingleton<CodeLoader>().Start();
+			Game.AddSingleton<CodeLoader>().Start(this);
 		}
 
 		private void Update()

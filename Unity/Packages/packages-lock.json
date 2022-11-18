@@ -1,11 +1,10 @@
 {
   "dependencies": {
     "com.focus-creative-games.hybridclr_unity": {
-      "version": "0.10.4",
+      "version": "file:hybridclr_unity",
       "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.cn"
+      "source": "embedded",
+      "dependencies": {}
     },
     "com.sharelib.logviewer": {
       "version": "file:Unity-Logs-Viewer",

@@ -221,6 +221,35 @@ namespace ET.Client
             return self.bundles.ContainsKey(bundleName);
         }
 
+        public static Dictionary<string, UnityEngine.Object> GetBundleAll(this ResourcesComponent self, string bundleName)
+        {
+            Dictionary<string, UnityEngine.Object> dict;
+            if (!self.resourceCache.TryGetValue(bundleName.BundleNameToLower(), out dict))
+            {
+                throw new Exception($"not found asset: {bundleName}");
+            }
+
+            return dict;
+        }
+
+        public static bool TryGetAsset(this ResourcesComponent self, string bundleName, string prefab, out UnityEngine.Object asset)
+        {
+            asset = null;
+
+            Dictionary<string, UnityEngine.Object> dict;
+            if (!self.resourceCache.TryGetValue(bundleName.BundleNameToLower(), out dict))
+            {
+                return false;
+            }
+
+            if (!dict.TryGetValue(prefab, out asset))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public static UnityEngine.Object GetAsset(this ResourcesComponent self, string bundleName, string prefab)
         {
             Dictionary<string, UnityEngine.Object> dict;

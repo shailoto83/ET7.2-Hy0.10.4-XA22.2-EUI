@@ -12,7 +12,7 @@ namespace ET.Client
         {
             Dictionary<Type, byte[]> output = new Dictionary<Type, byte[]>();
             HashSet<Type> configTypes = EventSystem.Instance.GetTypes(typeof (ConfigAttribute));
-            
+
             if (Define.IsEditor)
             {
                 string ct = "cs";
@@ -50,7 +50,10 @@ namespace ET.Client
                     {
                         configFilePath = $"../Config/Excel/{ct}/{configType.Name}.bytes";
                     }
-                    output[configType] = File.ReadAllBytes(configFilePath);
+                    if (File.Exists(configFilePath))
+                    {
+                        output[configType] = File.ReadAllBytes(configFilePath);
+                    }
                 }
             }
             else
@@ -59,11 +62,20 @@ namespace ET.Client
                 {
                     const string configBundleName = "config.unity3d";
                     ResourcesComponent.Instance.LoadBundle(configBundleName);
-                    
+
+                    //foreach (Type configType in configTypes)
+                    //{
+                    //    TextAsset v = ResourcesComponent.Instance.GetAsset(configBundleName, configType.Name) as TextAsset;
+                    //    output[configType] = v.bytes;
+                    //}
+
                     foreach (Type configType in configTypes)
                     {
-                        TextAsset v = ResourcesComponent.Instance.GetAsset(configBundleName, configType.Name) as TextAsset;
-                        output[configType] = v.bytes;
+                        UnityEngine.Object asset = null;
+                        if (ResourcesComponent.Instance.TryGetAsset(configBundleName, configType.Name, out asset))
+                        {
+                            output[configType] = (asset as TextAsset).bytes;
+                        }
                     }
                 }
             }
@@ -77,8 +89,6 @@ namespace ET.Client
     {
         public override byte[] Handle(ConfigComponent.GetOneConfigBytes args)
         {
-            //TextAsset v = ResourcesComponent.Instance.GetAsset("config.unity3d", configName) as TextAsset;
-            //return v.bytes;
             throw new NotImplementedException("client cant use LoadOneConfig");
         }
     }

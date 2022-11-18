@@ -100,18 +100,18 @@ namespace HybridCLR.Editor
             string aotAssembliesSrcDir = SettingsUtil.GetAssembliesPostIl2CppStripDir(target);
             string aotAssembliesDstDir = Application.streamingAssetsPath;
 
-            foreach (var dll in LoadDll.AOTMetaAssemblyNames)
-            {
-                string srcDllPath = $"{aotAssembliesSrcDir}/{dll}";
-                if (!File.Exists(srcDllPath))
-                {
-                    Debug.LogError($"ab中添加AOT补充元数据dll:{srcDllPath} 时发生错误,文件不存在。裁剪后的AOT dll在BuildPlayer时才能生成，因此需要你先构建一次游戏App后再打包。");
-                    continue;
-                }
-                string dllBytesPath = $"{aotAssembliesDstDir}/{dll}.bytes";
-                File.Copy(srcDllPath, dllBytesPath, true);
-                Debug.Log($"[CopyAOTAssembliesToStreamingAssets] copy AOT dll {srcDllPath} -> {dllBytesPath}");
-            }
+            // foreach (var dll in LoadDll.AOTMetaAssemblyNames)
+            // {
+            //     string srcDllPath = $"{aotAssembliesSrcDir}/{dll}";
+            //     if (!File.Exists(srcDllPath))
+            //     {
+            //         Debug.LogError($"ab中添加AOT补充元数据dll:{srcDllPath} 时发生错误,文件不存在。裁剪后的AOT dll在BuildPlayer时才能生成，因此需要你先构建一次游戏App后再打包。");
+            //         continue;
+            //     }
+            //     string dllBytesPath = $"{aotAssembliesDstDir}/{dll}.bytes";
+            //     File.Copy(srcDllPath, dllBytesPath, true);
+            //     Debug.Log($"[CopyAOTAssembliesToStreamingAssets] copy AOT dll {srcDllPath} -> {dllBytesPath}");
+            // }
         }
 
         public static void CopyHotUpdateAssembliesToStreamingAssets()
