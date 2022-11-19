@@ -27,7 +27,7 @@ namespace ET
 
 		public void Start(MonoBehaviour initMono)
 		{
-#if ENABLE_IL2CPP || UNITY_EDITOR
+#if ENABLE_IL2CPP || !UNITY_EDITOR
 			initMono?.StartCoroutine(this.DownLoadAssets(this.StartGame));
 #else
 			if (Define.EnableCodes)
@@ -59,7 +59,7 @@ namespace ET
 				byte[] pdbBytes;
 				if (!Define.IsEditor)
 				{
-					Dictionary<string, UnityEngine.Object> dictionary = AssetsBundleHelper.LoadBundle("code.unity3d");
+					Dictionary<string, UnityEngine.Object> dictionary = AssetsBundleHelper.LoadBundle("code.unity3d").Item2;
 					assBytes = ((TextAsset)dictionary["Model.dll"]).bytes;
 					pdbBytes = ((TextAsset)dictionary["Model.pdb"]).bytes;
 				}
@@ -85,7 +85,7 @@ namespace ET
 			byte[] pdbBytes;
 			if (!Define.IsEditor)
 			{
-				Dictionary<string, UnityEngine.Object> dictionary = AssetsBundleHelper.LoadBundle("code.unity3d");
+				Dictionary<string, UnityEngine.Object> dictionary = AssetsBundleHelper.LoadBundle("code.unity3d").Item2;
 				assBytes = ((TextAsset)dictionary["Hotfix.dll"]).bytes;
 				pdbBytes = ((TextAsset)dictionary["Hotfix.pdb"]).bytes;
 			}

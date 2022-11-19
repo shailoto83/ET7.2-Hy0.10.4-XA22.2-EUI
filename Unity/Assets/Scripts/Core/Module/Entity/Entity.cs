@@ -697,7 +697,16 @@ namespace ET
 
             return component;
         }
-        
+
+        public K GetParentComponent<K>() where K : Entity
+        {
+            if (this.Parent == null)
+            {
+                return null;
+            }
+            return this.Parent.GetComponent<K>();
+        }
+
         private static Entity Create(Type type, bool isFromPool)
         {
             Entity component;

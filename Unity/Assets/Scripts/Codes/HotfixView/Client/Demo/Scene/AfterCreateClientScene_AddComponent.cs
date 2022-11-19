@@ -5,8 +5,12 @@ namespace ET.Client
     {
         protected override async ETTask Run(Scene scene, EventType.AfterCreateClientScene args)
         {
-            scene.AddComponent<UIEventComponent>();
-            scene.AddComponent<UIComponent>();
+            //scene.AddComponent<UIEventComponent>();
+            //scene.AddComponent<UIComponent>();
+            scene.AddComponent<EUI.UIEventComponent>();
+            scene.AddComponent<EUI.UIComponent>();
+            scene.AddComponent<EUI.UIPathComponent>();
+
             scene.AddComponent<ResourcesLoaderComponent>();
             await ETTask.CompletedTask;
         }
